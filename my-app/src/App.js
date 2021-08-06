@@ -12,8 +12,8 @@ function App() {
    
     <div> <JsonFetch/></div>   
 
-    <PostTodo/>
-    
+    <div>    <PostTodo/>      </div>
+
     
     
    </>

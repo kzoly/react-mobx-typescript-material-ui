@@ -5,6 +5,12 @@ function JsonFetch() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
   
+  const [filter,filterSet]=useState("");
+  const TodoRow=({todo})=>(
+    <li  >
+      {todo.title} 
+    </li>
+ )
 
   // Note: the empty deps array [] means
   // this useEffect will run once
@@ -33,13 +39,24 @@ function JsonFetch() {
     return <div>Loading...</div>;
   } else {
     return (
+      <>
+      <input 
+        value={filter}
+        placeholder="search"
+        onChange={(evt)=>filterSet(evt.target.value)}
+      />
+
+
       <ul>
-        {items.map(item => (
-          <li  key={item.id}>
-            {item.title} 
-          </li>
-        ))}
+        {items
+          .filter((item)=>item.title.toLowerCase().includes(filter.toLowerCase()))
+          .map(item => (
+            
+            <TodoRow todo={item} key={item.id} />
+              
+            ))}
       </ul>
+      </>
     );
   }
 }
