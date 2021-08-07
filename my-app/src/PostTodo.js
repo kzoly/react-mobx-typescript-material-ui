@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { v4 as uuidv4 } from 'uuid';
+//import { v4 as uuidv4 } from 'uuid';
 
 
 function PostTodo() {
@@ -7,10 +7,10 @@ function PostTodo() {
    
     const [dueDate,setDuedate]=useState("");
     function saveData(){ 
-        let id="e98bec1b-19d0-4565-88ec-45dc79a41b35";
+        let id=855;
         let isDone=false;
 
-        let data={title,isDone,dueDate,id}
+        let data={id,title,isDone,dueDate}
         console.log(data);
         // Simple POST request with a JSON body using fetch
         const requestOptions = {
