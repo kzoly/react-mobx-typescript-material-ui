@@ -36,3 +36,64 @@
     transform: rotate(360deg);
   }
 }
+
+.tablebody{
+  
+  margin-left: 50px;
+  margin-top: 50px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 12px 12px rgba(0,0,0,.12);
+  max-width: 90%;
+}
+ul{
+  list-style: none;
+  padding-bottom: 30px;
+}
+li{
+  margin-top: 10px;
+  display: flex;
+
+}
+li .checked{
+  text-decoration: line-through;
+}
+.todoTitle{
+  margin-right: 35px;
+  width: 40%;
+}
+.todoDate{
+  width: 35%
+}
+.delButton{
+  margin-left: 15px;
+}
+.searchBar{
+  margin: 30px 45px 10px 45px;
+  font-size:x-large ;
+  padding: 0.2rem;
+
+}
+.searchicon{
+  width:30px;
+  height:30px;
+  color: #282c34;
+}
+.newTodo{
+  margin-left: 50px;
+  margin-top: 10px;
+ height: 150px;
+ align-items: center;
+
+}
+.newTodo label{
+  margin: 5px;
+}
+.newTodo input .textInput{
+  width: 280px;
+  height: 20px;
+  
+}
+.newTodo input .dataInput{
+  width: 150px;
+  height: 20px;
+}
