@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/react-mobx-typescript-material-ui/my-app/static/css/main.60cc955c.chunk.css",
+    "main.js": "/react-mobx-typescript-material-ui/my-app/static/js/main.91a64b53.chunk.js",
+    "main.js.map": "/react-mobx-typescript-material-ui/my-app/static/js/main.91a64b53.chunk.js.map",
+    "runtime-main.js": "/react-mobx-typescript-material-ui/my-app/static/js/runtime-main.f56cb5b2.js",
+    "runtime-main.js.map": "/react-mobx-typescript-material-ui/my-app/static/js/runtime-main.f56cb5b2.js.map",
+    "static/js/2.bb4bfd1e.chunk.js": "/react-mobx-typescript-material-ui/my-app/static/js/2.bb4bfd1e.chunk.js",
+    "static/js/2.bb4bfd1e.chunk.js.map": "/react-mobx-typescript-material-ui/my-app/static/js/2.bb4bfd1e.chunk.js.map",
+    "static/js/3.66ef2370.chunk.js": "/react-mobx-typescript-material-ui/my-app/static/js/3.66ef2370.chunk.js",
+    "static/js/3.66ef2370.chunk.js.map": "/react-mobx-typescript-material-ui/my-app/static/js/3.66ef2370.chunk.js.map",
+    "index.html": "/react-mobx-typescript-material-ui/my-app/index.html",
+    "static/css/main.60cc955c.chunk.css.map": "/react-mobx-typescript-material-ui/my-app/static/css/main.60cc955c.chunk.css.map",
+    "static/js/2.bb4bfd1e.chunk.js.LICENSE.txt": "/react-mobx-typescript-material-ui/my-app/static/js/2.bb4bfd1e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f56cb5b2.js",
+    "static/js/2.bb4bfd1e.chunk.js",
+    "static/css/main.60cc955c.chunk.css",
+    "static/js/main.91a64b53.chunk.js"
+  ]
+}
