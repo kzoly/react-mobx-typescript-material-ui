@@ -1,12 +1,13 @@
 import React,{useState} from 'react'
 import { v4 as uuidv4 } from 'uuid';
+import Moment from 'moment';
 
 export const AddTask = ({onAdd}) => {
+    const date =Moment().format('YYYY-MM-DD');
 
     const[title,setText]=useState('')
-    const[dueDate,setDate]=useState('')
+    const[dueDate,setDate]=useState(date.toString())
     const[isDone,setIsDone]=useState(false)
- 
     const onSubmit=(e)=>{
         e.preventDefault()
 
@@ -14,11 +15,12 @@ export const AddTask = ({onAdd}) => {
             alert('add task text');
             return;
         }
-const id=uuidv4();
+        
+        const id=uuidv4();
         onAdd({todoId: id,id,title,dueDate,isDone})
 
         setText('');
-        setDate('');
+        setDate(date.toString());
         setIsDone(false);
 
     }
@@ -33,7 +35,7 @@ const id=uuidv4();
 
             <div className="form-control">
                 <label>Date:</label>
-                <input type='date' placeholder='AddDate' value={dueDate} onChange={(e)=>setDate(e.target.value)}/>
+                <input type='date' placeholder='AddDate'  value={dueDate} onChange={(e)=>setDate(e.target.value)}/>
 
             </div>
 

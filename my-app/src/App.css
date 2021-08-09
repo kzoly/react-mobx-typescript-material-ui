@@ -36,7 +36,9 @@
     transform: rotate(360deg);
   }
 }
-
+h1{
+  text-align: center;
+}
 .tablebody{
   
   margin-left: 50px;
@@ -67,17 +69,25 @@ li .checked{
 .delButton{
   margin-left: 15px;
 }
-.searchBar{
-  margin: 30px 45px 10px 45px;
-  font-size:x-large ;
-  padding: 0.2rem;
+.searchIcon{
+  width:10%;
+  height:30px;
+  color: #0f0f0f;
 
 }
-.searchicon{
-  width:30px;
-  height:30px;
-  color: #282c34;
+.searchBar{
+  margin: 30px 45px 10px 0;
+  font-size:x-large ;
+  padding: 0.2rem;
+  width: 40%;
+
 }
+.showHideTask{
+  width: 20%;
+  
+  margin: 40px 30px;
+}
+
 .newTodo{
   margin-left: 50px;
   margin-top: 10px;

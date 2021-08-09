@@ -2,13 +2,14 @@ import './App.css';
 import React,{useState,useEffect} from 'react'
 import TodoRow from './component/AddRow';
 import { AddTask } from './component/AddNewRow';
-
+import {BiSearchAlt } from 'react-icons/bi'
 function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
   
   const [filter,filterSet]=useState("");
+  const[showAddTask,setShowAddTask]=useState(true);
 
   // Note: the empty deps array [] means
   // this useEffect will run once
@@ -107,34 +108,42 @@ function App() {
   } else {
     return (
      <>
+     <h1>ReactJS Todo List</h1>
       <div className="tablebody">
+        <BiSearchAlt className="searchIcon" style={{marginLeft:"45px",width:"30px",height:"30px",marginBottom:"-10px"}}/>
         <input 
             className="searchBar"
             value={filter}
             placeholder="search"
             onChange={(evt)=>filterSet(evt.target.value)}
           />
+        <button className="showHideTask" text="Add" onClick={()=>setShowAddTask(!showAddTask)}>Add task</button>
+
+        {showAddTask  &&   <div className="newTodo">  
+            
+           <label>Add new toodo</label>
+           <AddTask onAdd={addTask}/>
+          
+          </div> 
+        }
         <ul>
             {items
               .filter((item)=>item.title.toLowerCase().includes(filter.toLowerCase()))
-              .map(item => (
-                <TodoRow todo={item} key={item.id} onDelete={deleteItem} onToggle={toggleReminder} />
+              .map(item => ( 
+
+                  <TodoRow todo={item} key={item.id} onDelete={deleteItem} onToggle={toggleReminder} />
                   
                 ))}
         </ul> 
+        
+        
         {items.length>0?(''):('No item to show')}
 
         
 
       </div>    
         
-       <div className="newTodo">  
-          <label>Add new toodo</label>
-        
-          {/* <div>    <PostTodo/>      </div> */}
-          <AddTask onAdd={addTask}/>
-        
-        </div> 
+       
       </>
     );
   }
