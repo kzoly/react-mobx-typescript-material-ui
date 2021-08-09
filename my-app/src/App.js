@@ -1,8 +1,7 @@
 import './App.css';
 import React,{useState,useEffect} from 'react'
-import PostTodo from './store/PostTodo'
-import TodoRow from './component/rowAdd';
-
+import TodoRow from './component/AddRow';
+import { AddTask } from './component/AddNewRow';
 
 function App() {
   const [error, setError] = useState(null);
@@ -32,16 +31,73 @@ function App() {
         }
       )
   }, [])
+  
+  
+  
+  //add task
 
-  //delete item task
-  const deleteItem = (id) =>{
-    setItems(items.filter((item)=>item.id!==id))
+  const addTask=(task)=>{
+    //add to list
+   setItems([...items,task])
+   //add to file
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Accept': 'application/json',
+      'Content-Type': 'application/json',},
+      body: JSON.stringify(task)
+    };
+    fetch('https://610e4a9848beae001747baa4.mockapi.io/myapptodo2', requestOptions)
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', task);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
   }
 
+
+  function deleteData(item, url) {
+    return fetch(url + '/' + item, {
+      method: 'delete'
+    })
+    .then(response => response.json());
+  }
+  //delete item task
+  const deleteItem = (id) =>{
+    setItems(items.filter((item)=>item.id!==id));
+    deleteData(id,'https://610e4a9848beae001747baa4.mockapi.io/myapptodo2');
+  }
+
+
+  
   //  toggle reminder
   const toggleReminder=(id) => {
     setItems(items.map((item) => item.id===id ? { ...item,isDone:!item.isDone } : item))
+    update(id)
   }
+  
+  function update(id){
+
+    const datas= items.find(element => element.id ===id);
+    //console.log(datas)
+    datas.isDone=!datas.isDone;
+    const requestOptions = {
+      method: 'PUT',
+      headers: { 'Accept': 'application/json',
+      'Content-Type': 'application/json',},
+      body: JSON.stringify(datas)
+    };
+    fetch(`https://610e4a9848beae001747baa4.mockapi.io/myapptodo2/${id}`, requestOptions)
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', datas);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  }
+  //console.log(items);
 
 
   if (error) {
@@ -62,7 +118,6 @@ function App() {
             {items
               .filter((item)=>item.title.toLowerCase().includes(filter.toLowerCase()))
               .map(item => (
-                
                 <TodoRow todo={item} key={item.id} onDelete={deleteItem} onToggle={toggleReminder} />
                   
                 ))}
@@ -76,7 +131,8 @@ function App() {
        <div className="newTodo">  
           <label>Add new toodo</label>
         
-          <div>    <PostTodo/>      </div>
+          {/* <div>    <PostTodo/>      </div> */}
+          <AddTask onAdd={addTask}/>
         
         </div> 
       </>
