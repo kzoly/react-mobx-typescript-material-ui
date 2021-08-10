@@ -26,26 +26,28 @@ export const AddTask = ({onAdd}) => {
     }
 
     return (
-        <form className="add-form" onSubmit={onSubmit}>
-            <div className="form-control">
+        <form className="add-task" onSubmit={onSubmit}>
+            <div className="add-task-text">Add new toodo</div>
+
+            <div className="add-task-task">
                 <label>Task:</label>
                 <input type='text' placeholder='AddTask' value={title} onChange={(e)=>setText(e.target.value)} />
 
             </div>
+            <div className="add-task-check">
+                <label>IsDone:</label>
+                <input type='checkbox' value={isDone} checked={isDone} onChange={(e)=>setIsDone(e.currentTarget.checked)} />
 
-            <div className="form-control">
+            </div>
+            <div className="add-task-date">
                 <label>Date:</label>
                 <input type='date' placeholder='AddDate'  value={dueDate} onChange={(e)=>setDate(e.target.value)}/>
 
             </div>
 
-            <div className="form-control">
-                <label>IsDone:</label>
-                <input type='checkbox' value={isDone} checked={isDone} onChange={(e)=>setIsDone(e.currentTarget.checked)} />
-
-            </div>
+           
             
-            <input type='submit' placeholder='Add'valur='save task' />
+            <input className="add-task-submit" type='submit' placeholder='Add'valur='save task' />
         </form>
     )
 }

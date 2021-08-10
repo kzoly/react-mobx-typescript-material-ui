@@ -24,8 +24,12 @@ html {
 body {
 	margin: 30px 0px 0px 0px;
 	font-family: georgia;
-  background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
-      background-size: cover;
+  /* background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%); */
+    
+  background-image: url("background.jpg");
+ 
+ 
+  background-size: cover;
   background-attachment: fixed;
 
 

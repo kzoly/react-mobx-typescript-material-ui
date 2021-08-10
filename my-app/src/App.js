@@ -3,13 +3,16 @@ import React,{useState,useEffect} from 'react'
 import TodoRow from './component/AddRow';
 import { AddTask } from './component/AddNewRow';
 import {BiSearchAlt } from 'react-icons/bi'
+import {AiFillEdit } from 'react-icons/ai'
+
+
 function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
   
   const [filter,filterSet]=useState("");
-  const[showAddTask,setShowAddTask]=useState(true);
+  const[showAddTask,setShowAddTask]=useState(false);
 
   // Note: the empty deps array [] means
   // this useEffect will run once
@@ -108,7 +111,7 @@ function App() {
   } else {
     return (
      <>
-     <h1>ReactJS Todo List</h1>
+     <h1>     <AiFillEdit className="writeIco"/> ReactJS Todo List</h1>
       <div className="tablebody">
         <BiSearchAlt className="searchIcon" style={{marginLeft:"45px",width:"30px",height:"30px",marginBottom:"-10px"}}/>
         <input 
@@ -121,7 +124,6 @@ function App() {
 
         {showAddTask  &&   <div className="newTodo">  
             
-           <label>Add new toodo</label>
            <AddTask onAdd={addTask}/>
           
           </div> 
